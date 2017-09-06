@@ -32,3 +32,5 @@ $ sudo apt install php-xdebug
 * Execute coverage
 
 `$ phpunit --coverage-html coverage`
+
+* view how to use PHP INI settings, Constants and Global Variables
