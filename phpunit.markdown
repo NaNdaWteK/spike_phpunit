@@ -13,3 +13,22 @@
 **Need composer**
 
  `$ composer require --dev phpunit/phpunit ^6.2`
+
+### Add coverage
+
+**coverage requires xdebug**
+
+```
+# For PHP 5, PHP 7
+
+$ sudo apt-get install php5-xdebug
+$ sudo apt install php-xdebug
+```
+
+* Add phpunit.xml
+
+[example](https://phpunit.de/manual/current/en/appendixes.configuration.html)
+
+* Execute coverage
+
+`$ phpunit --coverage-html coverage`
