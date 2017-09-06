@@ -34,3 +34,11 @@ $ sudo apt install php-xdebug
 `$ phpunit --coverage-html coverage`
 
 * view how to use PHP INI settings, Constants and Global Variables
+
+### Create Mocks
+
+**Requires mockery**
+
+`$ composer require --dev mockery/mockery`
+
+**needs require autoload.php for avoid dependenci problems**
