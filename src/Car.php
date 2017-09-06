@@ -12,4 +12,10 @@ class Car
         $this->color = $color;
     }
 
+    public function paint($color)
+    {
+        $this->color = $color;
+        return 'Your car is now ' . $this->color;
+    }
+
 }
