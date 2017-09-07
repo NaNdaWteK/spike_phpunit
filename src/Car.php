@@ -18,7 +18,7 @@ class Car
         $this->dolars = $quotation->convertToOficialDolar($euros);
     }
 
-    public function paint($color)
+    private function paint($color)
     {
         $this->color = $color;
         return 'Your car is now ' . $this->color;

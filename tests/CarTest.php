@@ -37,9 +37,11 @@ final class CarTest extends TestCase
     /**
      * @dataProvider changeColor
      */
-    public function testPainting($newColor, $result)
+    public function testPainting($carObject, $result)
     {
-        $this->assertEquals($newColor, $result);
+        $strResult = self::invokePrivateMethod($carObject, 'paint', ['red']);
+
+        $this->assertEquals($strResult, $result);
     }
 
     public function testToDolars()
@@ -53,17 +55,17 @@ final class CarTest extends TestCase
 
         return [
             'paint to red'   => [
-                (new Spike\Car(self::COLOR, self::PRICE, $mockQuotation))->paint('red'),
+                (new Spike\Car(self::COLOR, self::PRICE, $mockQuotation)),
                 'Your car is now red'
-            ],
-            'paint to green'   => [
-                (new Spike\Car(self::COLOR, self::PRICE, $mockQuotation))->paint('green'),
-                'Your car is now green'
-            ],
-            'paint to yellow' =>  [
-                (new Spike\Car(self::COLOR, self::PRICE, $mockQuotation))->paint('yellow'),
-                'Your car is now yellow'
-            ],
+            ]
         ];
+    }
+
+    private function invokePrivateMethod(&$object, $methodName, array $parameters = array())
+    {
+        $reflection = new \ReflectionClass(get_class($object));
+        $method = $reflection->getMethod($methodName);
+        $method->setAccessible(true);
+        return $method->invokeArgs($object, $parameters);
     }
 }
